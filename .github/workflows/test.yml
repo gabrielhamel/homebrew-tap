@@ -1,0 +1,32 @@
+name: Test Homebrew installation
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, macos-15-intel, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@main
+      - name: Install from the tap
+        run: brew install gabrielhamel/tap/wg-launcher
+      - name: Check the installed CLI
+        run: |
+          WG_LAUNCHER_NO_UPDATE_CHECK=1 wg-launcher --version
+          wg-launcher --help
+          set +e
+          output=$(wg-launcher self-update 2>&1)
+          status=$?
+          set -e
+          test "$status" -ne 0
+          echo "$output" | grep -F 'Self-update not supported'
+          echo "$output" | grep -F 'Homebrew'
