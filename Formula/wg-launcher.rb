@@ -1,21 +1,21 @@
 class WgLauncher < Formula
   desc "Command-line launcher for Wargaming game assets"
   homepage "https://github.com/gabrielhamel/wg-launcher"
-  version "1.3.0"
+  version "1.4.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/gabrielhamel/wg-launcher/releases/download/1.3.0/wg-launcher-cli-aarch64-apple-darwin.tar.gz"
-      sha256 "37a60df5fd66f5f4c9d98c1d208ffa7a1a5b9c273cc8465d04d949238e18aa6b"
+      url "https://github.com/gabrielhamel/wg-launcher/releases/download/1.4.0/wg-launcher-cli-aarch64-apple-darwin.tar.gz"
+      sha256 "1446c47f324ca32703c2fbe012ac691017ea1aaa3268fbb021fb0f2a9fb2bc99"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/gabrielhamel/wg-launcher/releases/download/1.3.0/wg-launcher-cli-x86_64-apple-darwin.tar.gz"
-      sha256 "dcc96299bc1e1d58670d958f5fdfbb6ab7d9512d4d314095172e026f6f281cac"
+      url "https://github.com/gabrielhamel/wg-launcher/releases/download/1.4.0/wg-launcher-cli-x86_64-apple-darwin.tar.gz"
+      sha256 "043ecc1cb1404b2db24cd3efdc629b413f9f21aaedb54ebde0f2db471d1827e5"
     end
   end
   if OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/gabrielhamel/wg-launcher/releases/download/1.3.0/wg-launcher-cli-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "f91f88316de50bbc426e39461f95f6532c8170f9c90046f6ecf0795e45ebce03"
+      url "https://github.com/gabrielhamel/wg-launcher/releases/download/1.4.0/wg-launcher-cli-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "8e2c39741c435c38302474ad18ea067401edb1732ec1b673c66892085fd72ee0"
     end
   end
   license "MIT"
